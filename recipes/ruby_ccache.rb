@@ -60,7 +60,7 @@ else
   execute "install ruby-1.9.3" do
     cwd Chef::Config[:file_cache_path]
     command <<-EOH
-export PATH=/var/lib/ccache:$PATH
+export PATH=/usr/lib/ccache:$PATH
 tar zxf #{ruby_filename}
 cd ruby-#{ruby_version}
 ./configure --prefix=/opt/ruby1.9
