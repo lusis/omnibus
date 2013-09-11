@@ -47,9 +47,9 @@ else
     package "openssl-devel"
   end
 
-  ruby_version  = "1.9.3-p392"
+  ruby_version  = "1.9.3-p448"
   ruby_filename = "ruby-#{ruby_version}.tar.gz"
-  ruby_checksum = "8861ddadb2cd30fb30e42122741130d12f6543c3d62d05906cd41076db70975f"
+  ruby_checksum = "2f35e186543a03bec5e603296d6d8828b94ca58bab049b67b1ceb61d381bc8a7"
 
   remote_file ::File.join(Chef::Config[:file_cache_path], ruby_filename) do
     source "http://ftp.ruby-lang.org/pub/ruby/1.9/#{ruby_filename}"
