@@ -53,7 +53,7 @@ else
   %w{ bundle fpm gem omnibus rake ruby }.each do |bin|
 
     link "/usr/local/bin/#{bin}" do
-      to "/opt/ruby1.9/bin/#{bin}"
+      to "/opt/chef/embedded/bin/#{bin}"
     end
 
   end
