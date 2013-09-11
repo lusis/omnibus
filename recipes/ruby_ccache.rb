@@ -61,6 +61,7 @@ else
     cwd Chef::Config[:file_cache_path]
     command <<-EOH
 export PATH=/usr/lib/ccache:$PATH
+export CCACHE_DIR=/var/tmp/ccache
 tar zxf #{ruby_filename}
 cd ruby-#{ruby_version}
 ./configure --prefix=/opt/ruby1.9
