@@ -60,17 +60,15 @@ else
   execute "install ruby-1.9.3" do
     cwd Chef::Config[:file_cache_path]
     command <<-EOH
-export PATH=/usr/lib/ccache:$PATH
-export CCACHE_DIR=/var/tmp/ccache
 tar zxf #{ruby_filename}
 cd ruby-#{ruby_version}
-./configure --prefix=/opt/ruby1.9
-make
-make install
+PATH=/usr/lib/ccache:$PATH CCACHE_DIR=/var/tmp/ccache ./configure --prefix=/opt/ruby1.9
+PATH=/usr/lib/ccache:$PATH CCACHE_DIR=/var/tmp/ccache make
+PATH=/usr/lib/ccache:$PATH CCACHE_DIR=/var/tmp/ccache make install
 EOH
     environment(
       'CFLAGS' => '-L/usr/lib -I/usr/include',
-      'LDFLAGS' => '-L/usr/lib -I/usr/include'
+      'LDFLAGS' => '-L/usr/lib -I/usr/include',
     )
     not_if { ::File.exists?("/opt/ruby1.9/bin/ruby") }
   end
